@@ -40,6 +40,37 @@ Este projeto demonstra a implementação de um layout responsivo utilizando Boot
 
 ![Header Responsivo](image-1.png)
 
+### 4. Cards de Produto com Variações
+**Objetivo:** Galeria 2x2 (mobile) → 3x3 (md+) com 'card', 'card-img-top', 'card-body', 'btn'.
+
+**Classes utilizadas:**
+- `col-6 col-md-4` - 2 colunas em mobile (50% cada), 3 colunas em desktop (33% cada)
+- `card` - Componente de cartão do Bootstrap
+- `card-img-top` - Imagem no topo do cartão
+- `card-body` - Corpo do cartão com conteúdo
+- `card-title` - Título do produto
+- `card-text` - Descrição do produto
+- `h-100` - Altura 100% para alinhar cartões
+- `align-items-stretch` - Critério de altura alinhada
+- `btn btn-primary` - Botão estilizado
+
+**Técnicas aplicadas:**
+- **Ratio para padronizar imagens**: `aspect-ratio: 4/3` - Mantém proporção 4:3 em todas as imagens
+- **Alturas alinhadas**: `h-100` + `align-items-stretch` - Todos os cards ficam com a mesma altura
+
+**Explicação das escolhas:**
+- **col-6 col-md-4**: Permite layout responsivo - 2 colunas em telas pequenas, 3 em médias/grandes
+- **aspect-ratio: 4/3**: Padroniza todas as imagens para evitar layouts quebrados
+- **h-100**: Garante que todos os cards tenham a mesma altura, independente do conteúdo
+- **align-items-stretch**: Faz com que o conteúdo se estique para ocupar toda a altura disponível
+
+**Responsividade:**
+- **Mobile (< 768px)**: Galeria 2x2 (2 colunas)
+- **Desktop (≥ 768px)**: Galeria 3x3 (3 colunas)
+
+**Evidência:**
+![Cards de Produto](image-2.png)
+
 ## 🚀 Tecnologias Utilizadas
 - **Spring Boot 2.7.3**
 - **Bootstrap 5.3.3**
