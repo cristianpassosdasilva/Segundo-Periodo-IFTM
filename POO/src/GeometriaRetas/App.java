@@ -1,4 +1,4 @@
-package PrimeiraEtapa;
+package GeometriaRetas;
 
 import java.util.Scanner;
 
@@ -13,22 +13,22 @@ public class App {
             System.out.println("Digite as coordenadas da reta:");
             
             System.out.print("X1: ");
-            double x1 = leCoordenada(scanner);
+            double x1 = leCoordenada(1);
             
             System.out.print("Y1: ");
-            double y1 = leCoordenada(scanner);
+            double y1 = leCoordenada(2);
             
             System.out.print("X2: ");
-            double x2 = leCoordenada(scanner);
+            double x2 = leCoordenada(3);
             
             System.out.print("Y2: ");
-            double y2 = leCoordenada(scanner);
+            double y2 = leCoordenada(4);
             
-            // 2 - se coordenadas forem válidas
-            if (valida(x1, y1, x2, y2)) {
-                // 2.1 - instanciar a classe Retas
-                Retas reta = new Retas(x1, y1, x2, y2);
-                
+            // 2.1 - instanciar a classe Retas
+            Retas reta = new Retas(x1, y1, x2, y2);
+            
+            // 2 - se coordenadas forem válidas (usando método da classe Retas)
+            if (reta.valida(x1, y1, x2, y2)) {
                 // 2.2 - calcular o comprimento
                 // 2.3 - contar retas  
                 // 2.4 - exibir
@@ -44,15 +44,11 @@ public class App {
             
         } while (resposta.equalsIgnoreCase("s"));
         
-        System.out.println("Total de retas criadas: " + Retas.getContadorRetas());
         scanner.close();
     }
     
-    public static boolean valida(double x1, double y1, double x2, double y2) {
-        return x1 > 0 && y1 > 0 && x2 > 0 && y2 > 0;
-    }
-    
-    public static double leCoordenada(Scanner scanner) {
+    public static double leCoordenada(int posicao) {
+        Scanner scanner = new Scanner(System.in);
         return scanner.nextDouble();
     }
 }
