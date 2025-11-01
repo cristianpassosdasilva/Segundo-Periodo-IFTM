@@ -1,6 +1,7 @@
 package com.professorangoti.torresmo.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,14 @@ public class ProdutoController {
   @GetMapping("/")
   public String home(Model model) {
     List<Produto> produtos = produtoService.findAll();
+
+    // Filtra apenas os produtos marcados como destaque
+    List<Produto> destaques = produtos.stream()
+        .filter(p -> Boolean.TRUE.equals(p.getDestaque()))
+        .collect(Collectors.toList());
+
     model.addAttribute("produtos", produtos);
+    model.addAttribute("destaques", destaques);
     return "home";
   }
 
